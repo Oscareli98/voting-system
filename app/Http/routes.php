@@ -17,6 +17,8 @@ use App\User;
 //     ]);
 // });
 Route::group(['middleware' => 'auth.basic'], function() {
+    Route::resource('positions', 'PositionController');
+
     Route::get('/', function () {
         return view('home');
     });

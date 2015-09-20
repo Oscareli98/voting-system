@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Position;
+
 class PositionController extends Controller
 {
     /**
@@ -26,7 +28,10 @@ class PositionController extends Controller
      */
     public function create()
     {
-        //
+        $positions = Position::school('LASA');
+        return view('positions.create')
+                ->with('positions', $positions)
+                ->with('school', 'LASA');
     }
 
     /**
@@ -37,7 +42,16 @@ class PositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'school' => 'required|in:LASA,LBJ',
+            'name'  => 'required',
+            'position' => 'required'
+        ]);
+
+        Position::create($request->all());
+
+        return redirect()->route('positions.create');
+
     }
 
     /**
@@ -82,6 +96,7 @@ class PositionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Position::find($id)->delete();
+        return redirect()->route('positions.create');
     }
 }
