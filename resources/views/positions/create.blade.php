@@ -14,7 +14,7 @@
 
           @foreach($options as $option)
             <li class="collection-item"><div>{{ $option['name'] }}
-              <a href="{#!" class="secondary-content">
+              <a href="{#!" class="secondary-content" style="position: relative; top:  -5px; margin-bottom: 0;">
                 <form style="dispay: inline;" method="POST" action="{{ route('positions.destroy', $option['id']) }}">
                   {!! csrf_field() !!}
                   <input type="hidden" name="_method" value="DELETE">
