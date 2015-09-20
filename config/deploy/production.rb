@@ -18,7 +18,7 @@
 # Don't use `:all`, it's a meta role.
 
 # role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
+role :app, %w{root@lasa2017.com}
 # role :db,  %w{deploy@example.com}
 
 
@@ -41,11 +41,9 @@
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+set :ssh_options, {
+    keys: %w(~/.ssh/id_rsa)
+}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------

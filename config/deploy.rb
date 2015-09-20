@@ -1,14 +1,18 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'voting'
+set :repo_url, 'https://github.com/Oscareli98/voting-system.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/var/voting'
+
+set :use_sudo, true
+set :linked_files, fetch(:linked_files, []).push('.env')
+
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -36,13 +40,11 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
+  after :updated, "composer:update" # composer namespace
+  after :updated, "composer:install" # install task
+
+  after :updated, "laravel:permissions"
+  after :updated, "laravel:optimize"
+  after :updated, "laravel:migrate"
 
 end
