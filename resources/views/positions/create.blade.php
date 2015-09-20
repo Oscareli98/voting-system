@@ -14,15 +14,6 @@
         </div>
         <div class="row">
             <div class="col s12">
-                <label>School</label>
-                <select name="school" class="browser-default">
-                  <option value="LASA">LASA</option>
-                  <option value="LBJ">LBJ</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
                 <label>Position</label>
                 <select name="position" class="browser-default">
                   <option value="King">King</option>

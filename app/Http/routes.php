@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,24 +10,31 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('home');
+Route::get('/accounts', function() {
+    User::create([
+        'email' => 'voting',
+        'password' => bcrypt('hoco')
+    ]);
 });
+Route::group(['middleware' => 'auth.basic'], function() {
+    Route::get('/', function () {
+        return view('home');
+    });
 
-Route::post('/', [
-    'as' => 'vote-code',
-    'uses' => 'VotingController@postCode'
-]);
+    Route::post('/', [
+        'as' => 'vote-code',
+        'uses' => 'VotingController@postCode'
+    ]);
 
-Route::get('vote/{school}/{code}', [
-    'as' => 'vote',
-    'uses' => 'VotingController@vote'
-]);
+    Route::get('vote/{school}/{code}', [
+        'as' => 'vote',
+        'uses' => 'VotingController@vote'
+    ]);
 
-Route::get('stats', [
-    'as' => 'stats',
-    'uses' => 'VotingController@stats'
-]);
+    Route::get('stats', [
+        'as' => 'stats',
+        'uses' => 'VotingController@stats'
+    ]);
 
-Route::resource('votes', 'VotingController');
+    Route::resource('votes', 'VotingController');
+});
