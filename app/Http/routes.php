@@ -10,12 +10,12 @@ use App\User;
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/accounts', function() {
-    User::create([
-        'email' => 'voting',
-        'password' => bcrypt('hoco')
-    ]);
-});
+// Route::get('/accounts', function() {
+//     User::create([
+//         'email' => 'voting',
+//         'password' => bcrypt('hoco')
+//     ]);
+// });
 Route::group(['middleware' => 'auth.basic'], function() {
     Route::get('/', function () {
         return view('home');
