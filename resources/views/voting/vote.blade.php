@@ -22,6 +22,11 @@
       </div>
     @endif
     <form action="{{ route('votes.store') }}" method="POST">
+      <div class="row">
+        <div class="col s12 m6 offset-m3">
+          <p class="flow-text">You can vote for as many or as few categories as you would like.</p>
+        </div>
+      </div>
       {!! csrf_field() !!}
       <input type="hidden" name="school" value="{{ $school }}">
       <input type="hidden" name="code" value="{{ $code }}">

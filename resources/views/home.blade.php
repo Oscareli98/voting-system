@@ -26,7 +26,7 @@
         {!! csrf_field() !!}
         <div class="row">
           <div class="input-field col s12">
-            <input id="code" type="text" name="code">
+            <input id="code" placeholder="codes are NOT case sensitive" type="text" name="code">
             <label for="code">Code</label>
           </div>
         </div>

@@ -137,6 +137,6 @@ class VotingController extends Controller
     }
 
     public function stats() {
-        return Vote::stats();
+        return "<pre>".json_encode(Vote::stats(), $options=JSON_PRETTY_PRINT)."</pre>";
     }
 }
