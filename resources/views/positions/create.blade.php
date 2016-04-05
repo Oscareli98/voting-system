@@ -33,6 +33,8 @@
         {!! csrf_field() !!}
         <div class="row">
           <h4>Enter a Nominee</h4>
+          <p class="flow-text">The order they appear here is the order they will appear in when voting! Make sure you enter the positions you want to appear first, first, and the positions you want last at the end. (Ex. Prince <em>then</em> King). The order of the schools doesn't matter. </p>
+
         </div>
         <!-- <input type="hidden" name="school" value="LASA"> -->
         <div class="row">
