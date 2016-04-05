@@ -30,7 +30,7 @@
             <label for="code">Code</label>
           </div>
         </div>
-        {{-- <div class="row">
+        <div class="row">
             <div class="col s12">
                 <label>School</label>
                 <select name="school" class="browser-default">
@@ -38,8 +38,8 @@
                   <option value="LBJ">LBJ</option>
                 </select>
             </div>
-        </div> --}}
-        <input type="hidden" name="school" value="LASA">
+        </div>
+        <!-- <input type="hidden" name="school" value="LASA"> -->
         <button class="waves-effect waves-light btn btn-large" type="submit">Vote</button>
       </form>
     </div>

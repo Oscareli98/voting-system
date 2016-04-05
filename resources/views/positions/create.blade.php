@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('content')
-
 <div class="container">
 
     <div class="row">
@@ -10,7 +9,7 @@
         @foreach($positions as $category => $options)
 
           <ul class="collection with-header">
-            <li class="collection-header"><h4>{{ $school }} {{ $category }}</h4></li>
+            <li class="collection-header"><h4>{{ $category }}</h4></li>
 
           @foreach($options as $option)
             <li class="collection-item"><div>{{ $option['name'] }}
@@ -35,7 +34,7 @@
         <div class="row">
           <h4>Enter a Nominee</h4>
         </div>
-        <input type="hidden" name="school" value="LASA">
+        <!-- <input type="hidden" name="school" value="LASA"> -->
         <div class="row">
           <div class="input-field col s12">
             <input id="name" type="text" name="name">
@@ -43,7 +42,14 @@
           </div>
         </div>
         <div class="row">
-            <div class="col s12">
+              <div class="col s12 m6">
+                  <label>School</label>
+                  <select name="school" class="browser-default">
+                    <option value="LASA">LASA</option>
+                    <option value="LBJ">LBJ</option>
+                  </select>
+              </div>
+              <div class="col s12 m6">
                 <label>Position</label>
                 <select name="position" class="browser-default">
                   <option value="King">King</option>
@@ -52,14 +58,15 @@
                   <option value="Prince">Prince</option>
                   <option value="Princess">Princess</option>
 
-                  <option value="Duke">Duke</option>
+<!--                   <option value="Duke">Duke</option>
                   <option value="Duchess">Duchess</option>
 
                   <option value="Baron">Baron</option>
-                  <option value="Baroness">Baroness</option>
+                  <option value="Baroness">Baroness</option> -->
 
                 </select>
             </div>
+
         </div>
         <button class="waves-effect waves-light btn btn-large" type="submit">Save</button>
       </form>

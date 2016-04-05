@@ -28,10 +28,9 @@ class PositionController extends Controller
      */
     public function create()
     {
-        $positions = Position::school('LASA');
+        $positions = Position::allPositions();
         return view('positions.create')
-                ->with('positions', $positions)
-                ->with('school', 'LASA');
+                ->with('positions', $positions);
     }
 
     /**
