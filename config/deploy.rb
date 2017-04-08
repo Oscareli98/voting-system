@@ -8,7 +8,7 @@ set :repo_url, 'https://github.com/Oscareli98/voting-system.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/voting'
+set :deploy_to, '/var/www/vote.lasa2017.com'
 
 set :use_sudo, true
 set :linked_files, fetch(:linked_files, []).push('.env')
